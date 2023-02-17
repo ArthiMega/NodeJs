@@ -14,4 +14,4 @@ fs.unlink('newFile',function(err){
 })
 result = calc.add(2,3)
 
-console.log("result of add is",result)       
+console.log("result of add is",result)        
