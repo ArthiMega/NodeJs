@@ -10,7 +10,7 @@ fs.appendFile('newFile','arthi="developer"',function(err){
     console.log('data saved')
 })
 fs.unlink('newFile',function(err){
-    console.log("Deleted")
+    console.log("Deleted")  
 })
 result = calc.add(2,3)
 
