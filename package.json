@@ -1,10 +1,28 @@
 {
-  "name":"RealTimeWebChat",
+  "name": "chat",
   "version": "0.0.0",
   "description": "Real Time Web Chat",
   "dependencies": {
     "socket.io": "4.6.0",
     "express": "^4.18.2",
     "jade-bootstrap": "1.0.14"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthiMega/NodeJs.git"
+  },
+  "author": "Arthi Meganathan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArthiMega/NodeJs/issues"
+  },
+  "homepage": "https://github.com/ArthiMega/NodeJs#readme",
+  "keywords": [
+    "chat"
+  ]
 }
