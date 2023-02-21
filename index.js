@@ -1,20 +1,9 @@
-// import express from "express";
-let express = require('express')
-// import * as http from 'http';
-let http1 = require('http')
-import { Server } from 'socket.io';
-import { createServer } from 'http';
+const express = require('express');
+const path = require('path');
 
-const app = express()
-const server = createServer(app);
-const io = new Server(server)
-const http = http.Server(app)
-const port = process.env.PORT|| 3000;
+const app = express();
+const server = require('http').createServer(app);
 
-app.get("/", function(req, res){
-    res.sendFile(__dirname+ "/index.html");
-});
+app.use(express.static(path.join(__dirname+"/public")));
 
-http.RequestListener(port, function(){
-    console.log("Listening on (: " + port )
-});
+server.listen(8000) 
