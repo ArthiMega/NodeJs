@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Call BAcks</title>
 </head>
+
 <body>
     <button id="button">Hi</button>
 </body>
 <script>
-    document.getElementById('button').addEventListener('click',()=>{
+    document.getElementById('button').addEventListener('click', () => {
         console.log("Hello :)")
     })
+    const f1 = fetch('./db.json')
+    const f2 = fetch('./db.json')
+    Promise.all([f1, f2]).then(res => {
+        console.log("Array of results", res)
+    })
+        .catch(err => {
+            console.error(err)
+        })
 </script>
+
 </html>
 
 const xhr = new XMLHttpRequest()
 xhr.onreadystatechange = () => {
-  if (xhr.readyState === 4) {
-    xhr.status === 200 ? console.log(xhr.responseText) : console.error('error')
-  }
+if (xhr.readyState === 4) {
+xhr.status === 200 ? console.log(xhr.responseText) : console.error('error')
+}
 }
 xhr.open('GET', 'https://yoursite.com')
 xhr.send()
