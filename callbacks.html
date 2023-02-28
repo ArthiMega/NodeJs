@@ -12,6 +12,7 @@
     <button id="button">Hi</button>
 </body>
 <script>
+    const fetch = require('node-fetch');
     document.getElementById('button').addEventListener('click', () => {
         console.log("Hello :)")
     })
@@ -23,15 +24,21 @@
         .catch(err => {
             console.error(err)
         })
+    
+    const aFunction = async () => {
+        return 'test'
+    }
+
+    aFunction().then(alert) //
+    const getFirstUserData = () => {
+    return fetch('/users.json') // get users list
+      .then(response => response.json()) // parse JSON
+      .then(users => users[0]) // pick first user
+      .then(user => fetch(`/users/${user.name}`)) // get user data
+      .then(userResponse => userResponse.json()) // parse JSON
+  }
+  console.log(getFirstUserData)
+  getFirstUserData()
 </script>
 
 </html>
-
-const xhr = new XMLHttpRequest()
-xhr.onreadystatechange = () => {
-if (xhr.readyState === 4) {
-xhr.status === 200 ? console.log(xhr.responseText) : console.error('error')
-}
-}
-xhr.open('GET', 'https://yoursite.com')
-xhr.send()

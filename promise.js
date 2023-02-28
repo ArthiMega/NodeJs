@@ -1,42 +1,22 @@
-let done  = true
-const isItDoneYet =  new Promise((resolve,reject)=>{
-    if(done){
-        const workDone = "here is the work i done"
-        resolve(workDone)
-    }
-    else{
-        const why = "Still pending something went wrong!"
-        reject(why)
-    }
+const myPromise = new Promise((resolve,reject)=>{
+  setTimeout(()=>{
+    resolve("Success!")
+  },2000)
 })
-const fs = require('fs')
-
-const getFile = (fileName) => {
-  return new Promise((resolve, reject) => {
-    fs.readFile(fileName, (err, data) => {
-      if (err) {
-        reject(err)  // calling `reject` will cause the promise to fail with or without the error passed as an argument
-        return        // and we don't want to go any further
-      }
-      resolve(data)
-    })
-  })
-}
-
-getFile('./calc.js')
-.then(data => console.log(data))
-.catch(err => console.error(err))
-
-// const f1 = fetch('./db.json')
-// const f2 = fetch('./db.json')
-// Promise.all([f1,f2]).then(res=>{
-//     console.log("Array of results", res)
-// })
-// .catch(err=>{
-//     console.error(err)
-// })
-
-const first = new Promise((resolve, reject)=>{
-    setTimeout(resolve,500,'first')
+myPromise.then(
+  (result)=>{
+    console.log(result)
+    return 'Second Promise'
+    // throw new Error("Error!")
+  },
+  (err)=>{
+    console.log(err)
+  }
+)
+.then((result)=>{
+  console.log(result)
+  throw new Error("Error!")
 })
-const secont = new Promise((resolve,reject))
+.catch((error)=>{
+  console.log(error);
+})
