@@ -5,20 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Axios</title>
 </head>
 
 <body>
-
-    <script>
-        axios.get('http://localhost:3000/data')
-        .then(function(res){
-            console.log(res.status)
-            console.log(res)
-        }) 
-        .catch(function(error){
-            console.log(error)
-        })
+    <button onclick="getData()">Get Data</button>
+    <script type="text/javascript">
+        function getData() {
+            let post = {
+                "name": "Mega",
+                "best friend":"Sara"
+            }
+            axios.post('http://localhost:3000/data',post)
+                .then(function (res) {
+                    console.log(res.status) 
+                    console.log(res.data)
+                    console.log(res)
+                })
+                .catch(function (error) {
+                    console.log(error)
+            })
+            // axios.get('http://localhost:3000/data/1 ')
+        }
     </script>
 </body>
 
