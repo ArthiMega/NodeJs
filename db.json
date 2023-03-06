@@ -23,6 +23,11 @@
     {
       "todo": "Buy the milk",
       "id": 5
+    },
+    {
+      "email": "arthi@gmail.com",
+      "password": "Arthi@123",
+      "id": 8
     }
   ]
 }
